@@ -1,6 +1,6 @@
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
-import {Bento} from "./components/Bento";
+import {Bento} from "./pages/Bento";
 
 function App() {
   return (
