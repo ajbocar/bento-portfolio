@@ -1,0 +1,24 @@
+# main.yml
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+
+# Add this
+jobs:
+  deploy:
+    runs-on: self-hosted
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js
+        uses: actions/setup-node@v2
+        with: 
+          node-version: "20.x"
+      - name: Install dependencies
+        run: npm install
+      - name: Build Website
+        run: npm run build
+      - name: Copy to served folder
+        run: cp -R dist/* /home/pi/www
+
